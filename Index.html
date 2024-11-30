@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi novia?</title>
+    <style>
+        body {
+            font-family: Arial black, sans-serif;
+            text-align: center;
+            background-color: #f1f1f1;
+        }
+
+        h1 {
+            margin-top: 50px;
+            font-size: 24px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #yesButton {
+            background-color: #28a745;
+            color: white;
+        }
+
+        #noButton {
+            background-color: #dc3545;
+            color: white;
+            position: absolute;
+        }
+
+        #message {
+            font-size: 24px;
+            color: #28a745;
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>¿Quieres ser mi novia?</h1>
+    <button id="yesButton" class="button">Sí</button>
+    <button id="noButton" class="button">No</button>
+
+    <div id="message">¡Sabía que ibas a decir que si😍!</div>
+
+    <script>
+        const yesButton = document.getElementById("yesButton");
+        const noButton = document.getElementById("noButton");
+        const message = document.getElementById("message");
+
+        // Cuando se hace clic en el botón "Sí"
+        yesButton.addEventListener("click", function() {
+            message.style.display = "block";
+        });
+
+        // Cuando el ratón se acerca al botón "No", se mueve a una posición aleatoria
+        noButton.addEventListener("mouseover", function() {
+            const windowWidth = window.innerWidth - noButton.offsetWidth;
+            const windowHeight = window.innerHeight - noButton.offsetHeight;
+
+            const newX = Math.floor(Math.random() * windowWidth);
+            const newY = Math.floor(Math.random() * windowHeight);
+
+            noButton.style.left = `${newX}px`;
+            noButton.style.top = `${newY}px`;
+        });
+    </script>
+
+</body>
+</html>
